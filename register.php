@@ -26,12 +26,12 @@
 	<h1><a href="#" class="icon icon-cogs"><span>Logon</span></a></h1>
 </div>
 <div id="page" class="container">
-	<div id="content">
+	<div id="content" class="centered">
 		<div class="title">
 			<h2>Registrate</h2>
 			<span class="byline">Prueba de concepto de login seguro.</span>
 		</div>
-    <form action="" method="post">
+    <form class="table" action="register.php" method="post">
       <table cellspacing="0">
         <tr>
           <td>
