@@ -28,14 +28,14 @@
 <div id="page" class="container">
 	<div id="content" class="centered">
 		<div class="title">
-			<h2>Registrate</h2>
+			<h2>Regístrate</h2>
 			<span class="byline">Prueba de concepto de login seguro.</span>
 		</div>
     <form class="table" action="register.php" method="post">
       <table cellspacing="0">
         <tr>
           <td>
-            <label for="username">Nombre de usuario</label>
+            <label for="username">Nombre de usuario <span class="red">*</span></label>
           </td>
           <td>
             <input type="text" id="username" name="username" value="" required>
@@ -43,7 +43,7 @@
         </tr>
         <tr>
           <td>
-            <label for="password">Contraseña</label>
+            <label for="password">Contraseña <span class="red">*</span></label>
           </td>
           <td>
             <input type="password" id="password" name="password" value="" required>
@@ -51,7 +51,7 @@
         </tr>
         <tr>
           <td>
-            <label for="password_confirm">Confirma tu contraseña</label>
+            <label for="password_confirm">Confirma tu contraseña <span class="red">*</span></label>
           </td>
           <td>
             <input type="password" id="password_confirm" value="" name="password_confirm" required>
@@ -109,6 +109,7 @@
         </tr>
       </table>
     </form>
+    <p>Los campos con un asterisco ( <span class="red">*</span> ) son obligatorios.</p>
 	</div>
 </div>
 <div id="copyright" class="container">
