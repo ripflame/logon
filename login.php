@@ -1,4 +1,5 @@
 <?php
+include( 'includes/require_ssl.php' );
 include( 'includes/db_controller.php' );
 
 if ( isset( $_POST['submit'] ) ) {
