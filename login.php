@@ -16,7 +16,7 @@
 <div id="header">
 	<div id="menu" class="container">
 		<ul>
-			<li><a href="home.php" accesskey="1" title="">Home</a></li>
+			<li><a href="index.php" accesskey="1" title="">Home</a></li>
 			<li class="current_page_item"><a href="login.php" accesskey="1" title="">Login</a></li>
 			<li><a href="register.php" accesskey="2" title="">Registro</a></li>
 		</ul>
