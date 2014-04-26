@@ -119,7 +119,7 @@ if ( isset( $_POST['submit'] ) ) {
         </tr>
         <tr>
           <td>
-            <label for="name">Nombre(s)</label>
+            <label for="name">Nombre(s) <span class="red">*</span></label>
           </td>
           <td>
             <input type="text" id="name" value="" name="name">
@@ -127,7 +127,7 @@ if ( isset( $_POST['submit'] ) ) {
         </tr>
         <tr>
           <td>
-            <label for="last_name_1">Primer Apellido</label>
+            <label for="last_name_1">Primer Apellido <span class="red">*</span></label>
           </td>
           <td>
             <input type="text" id="last_name_1" value="" name="last_name_1">
@@ -135,7 +135,7 @@ if ( isset( $_POST['submit'] ) ) {
         </tr>
         <tr>
           <td>
-            <label for="last_name_2">Segundo Apellido</label>
+            <label for="last_name_2">Segundo Apellido <span class="red">*</span></label>
           </td>
           <td>
             <input type="text" id="last_name_2" value="" name="last_name_2">
@@ -156,8 +156,8 @@ if ( isset( $_POST['submit'] ) ) {
           <td>
             <select name="sex" id="sex">
               <option value=""></option>
-              <option value="hombre">Hombre</option>
-              <option value="mujer">Mujer</option>
+              <option value="Hombre">Hombre</option>
+              <option value="Mujer">Mujer</option>
             </select>
           </td>
         </tr>
