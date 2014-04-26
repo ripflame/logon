@@ -1,3 +1,55 @@
+<?php
+include( 'includes/config.php' );
+include( 'includes/db_controller.php' );
+
+if ( isset( $_POST['submit'] ) ) {
+  $username = $db->real_escape_string( $_POST['username'] );
+  $password = $db->real_escape_string( $_POST['password'] );
+  $password_confirm = $db->real_escape_string( $_POST['password_confirm'] );
+  $name = $db->real_escape_string( $_POST['name'] );
+  $last_name_1 = $db->real_escape_string( $_POST['last_name_1'] );
+  $last_name_2 = $db->real_escape_string( $_POST['last_name_2'] );
+  $email = $db->real_escape_string( $_POST['email'] );
+  if ( isset( $_POST['age'] ) && !isset( $_POST['sex'] ) ) {
+    $age = $db->real_escape_string( $_POST['age'] );
+  }
+
+  if ( isset( $_POST['sex'] ) && !isset( $_POST['age'] ) ) {
+    $sex = $db->real_escape_string( $_POST['sex'] );
+  }
+
+  if ( isset( $_POST['sex'] ) && isset( $_POST['age'] ) ) {
+    $age = $db->real_escape_string( $_POST['age'] );
+    $sex = $db->real_escape_string( $_POST['sex'] );
+  }
+
+  if ( !user_exists( $username ) ) {
+    if ( $password == $password_confirm ) {
+      $crypt_password = crypt( $password );
+      if ( isset( $age ) && !isset( $sex ) ) {
+        $query = " INSERT INTO `users` (`username`, `password`, `name`, `last_name_1`, `last_name_2`, `email`, `age`, `privilege`) VALUES ('$username', '$crypt_password', '$name', '$last_name_1', '$last_name_2', '$email', '$age', 1)";
+      }
+      if ( isset( $sex ) && !isset( $age ) ) {
+        $query = " INSERT INTO `users` (`username`, `password`, `name`, `last_name_1`, `last_name_2`, `email`, `sex`, `privilege`) VALUES ('$username', '$crypt_password', '$name', '$last_name_1', '$last_name_2', '$email', '$sex', 1)";
+      }
+      if ( isset( $sex ) && isset( $age ) ) {
+        $query = " INSERT INTO `users` (`username`, `password`, `name`, `last_name_1`, `last_name_2`, `email`, `age`, `sex`, `privilege`) VALUES ('$username', '$crypt_password', '$name', '$last_name_1', '$last_name_2', '$email', '$age', '$sex', 1)";
+      }
+
+      if ( $db->query( $query ) ) {
+        session_start();
+        $_SESSION['username'] = $username;
+        header( 'Location: index.php' );
+        exit();
+      } else {
+        $error -> $db->error;
+        echo $error;
+      }
+    }
+  }
+}
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -31,7 +83,7 @@
 			<h2>Regístrate</h2>
 			<span class="byline">Prueba de concepto de login seguro.</span>
 		</div>
-    <form class="table" action="register.php" method="post">
+    <form class="table" action="" method="post">
       <table cellspacing="0">
         <tr>
           <td>
@@ -39,6 +91,14 @@
           </td>
           <td>
             <input type="text" id="username" name="username" value="" required>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="email">Email <span class="red">*</span></label>
+          </td>
+          <td>
+            <input type="email" id="email" name="email" value="" required>
           </td>
         </tr>
         <tr>

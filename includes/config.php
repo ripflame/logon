@@ -1,6 +1,9 @@
 <?php
-$server = "localhost";
-$database_name = "logon_db";
-$user = "securelgn";
-$password = "p4p1ll0n";
+$db_hostname = "localhost";
+$db_user = "logondb";
+$db_password = "Hhft8dbT69y5pAMQ";
+$db_name = "logondb";
+
+$db = new mysqli( $db_hostname, $db_user, $db_password, $db_name );
+$db->set_charset( 'utf-8' );
 ?>
