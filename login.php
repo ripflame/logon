@@ -1,3 +1,20 @@
+<?php
+include( 'includes/db_controller.php' );
+
+if ( isset( $_POST['submit'] ) ) {
+  $username = $db->real_escape_string( $_POST['username'] );
+  $password = $db->real_escape_string( $_POST['password'] );
+
+  if ( is_valid_user( $username, $password ) ) {
+    session_start();
+    $_SESSION['username'] = $username;
+    header( 'Location: index.php' );
+    exit();
+  } else {
+    echo 'Nombre de usuario o contraseña inválidos';
+  }
+}
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -31,7 +48,7 @@
 			<h2>Ingresa</h2>
 			<span class="byline">Prueba de concepto de login seguro.</span>
 		</div>
-    <form class="table" action="login.php" method="post">
+    <form class="table" action="" method="post">
       <table cellspacing="0">
         <tr>
           <td>

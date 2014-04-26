@@ -1,5 +1,4 @@
 <?php
-include( 'includes/config.php' );
 include( 'includes/db_controller.php' );
 
 if ( isset( $_POST['submit'] ) ) {
@@ -54,7 +53,7 @@ if ( isset( $_POST['submit'] ) ) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Logon - Register</title>
+<title>Logon - Registro</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
