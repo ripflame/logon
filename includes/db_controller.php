@@ -21,4 +21,17 @@ function is_valid_user( $username, $password ) {
     return false;
 	}
 }
+
+function get_user( $username ) {
+  global $db;
+
+	$query = "SELECT * FROM `users` WHERE `username`='$username'";
+	$result = $db->query( $query );
+	if($result->num_rows == 1) {
+		$row = 	$result->fetch_assoc();
+    return $row;
+	} else {
+    return false;
+	}
+}
 ?>

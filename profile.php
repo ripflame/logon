@@ -1,4 +1,5 @@
 <?php
+include( 'includes/db_controller.php' );
 session_start();
 
 if ( $_SERVER["REQUEST_METHOD"] == "GET" ) {
@@ -11,6 +12,8 @@ if ( $_SERVER["REQUEST_METHOD"] == "GET" ) {
 
 if ( $_SERVER["REQUEST_METHOD"] == "POST") {
 }
+
+$user = get_user( $_SESSION['username'] );
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -58,7 +61,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="username">Nombre de usuario:</label>
           </td>
           <td>
-            <span class="profile" id="username"> Ripflame </span>
+            <span class="profile" id="username"><?php echo $user['username']; ?></span>
           </td>
         </tr>
         <tr>
@@ -66,7 +69,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="email">Email:</label>
           </td>
           <td>
-            <span class="profile-data" id="email"> ripflame@gmail.com </span>
+            <span class="profile-data" id="email"><?php echo $user['email']; ?></span>
           </td>
         </tr>
         <tr>
@@ -74,7 +77,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="name">Nombre:</label>
           </td>
           <td>
-            <span class="profile-data" id="name"> Gilberto Leon Enríquez </span>
+            <span class="profile-data" id="name"><?php echo $user['name'] . ' ' . $user['last_name_1'] . ' ' . $user['last_name_2']; ?></span>
           </td>
         </tr>
         <tr>
@@ -82,7 +85,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="age">Edad:</label>
           </td>
           <td>
-            <span class="profile-data" id="age"> 23 años </span>
+            <span class="profile-data" id="age"><?php echo $user['age']; ?></span>
           </td>
         </tr>
         <tr>
@@ -90,7 +93,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="sex">Sexo:</label>
           </td>
           <td>
-            <span class="profile-data" id="sex"> Hombre </span>
+            <span class="profile-data" id="sex"><?php echo $user['sex']; ?></span>
           </td>
         </tr>
         <tr>
