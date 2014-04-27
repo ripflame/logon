@@ -75,7 +75,7 @@ if ( isset( $_POST['submit'] ) ) {
 	</div>
 </div>
 <div id="logo" class="container">
-	<h1><a href="#" class="icon icon-cogs"><span>Logon</span></a></h1>
+	<h1><a href="index.php" class="icon icon-cogs"><span>Logon</span></a></h1>
 </div>
 <div id="page" class="container">
 	<div id="content" class="centered">
