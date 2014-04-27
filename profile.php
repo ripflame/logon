@@ -1,5 +1,16 @@
 <?php
 session_start();
+
+if ( $_SERVER["REQUEST_METHOD"] == "GET" ) {
+  if ( isset( $_GET['edit'] ) ) {
+    if ( $_GET['edit'] = "yes" ) {
+      $edit_mode = true;
+    }
+  }
+}
+
+if ( $_SERVER["REQUEST_METHOD"] == "POST") {
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -39,6 +50,7 @@ session_start();
 			<h2>Perfil de usuario</h2>
 			<span class="byline">Estos son tus datos de usuario.</span>
 		</div>
+    <?php if ( !$edit_mode ): ?>
     <form class="table" action="" method="get">
       <table cellspacing="15">
         <tr>
@@ -90,6 +102,78 @@ session_start();
       </table>
       <input type="hidden" name="edit" value="yes">
     </form>
+    <?php else: ?>
+    <form class="table" action="" method="post">
+      <table cellspacing="15">
+        <tr>
+          <td>
+            <label for="username">Nombre de usuario </label>
+          </td>
+          <td>
+            <input type="text" id="username" name="username" value="" required>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="email">Email </label>
+          </td>
+          <td>
+            <input type="email" id="email" name="email" value="" required>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="name">Nombre(s) </label>
+          </td>
+          <td>
+            <input type="text" id="name" value="" name="name">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="last_name_1">Primer Apellido </label>
+          </td>
+          <td>
+            <input type="text" id="last_name_1" value="" name="last_name_1">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="last_name_2">Segundo Apellido </label>
+          </td>
+          <td>
+            <input type="text" id="last_name_2" value="" name="last_name_2">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="age">Edad</label>
+          </td>
+          <td>
+            <input type="number" id="age" value="" name="age" min="1">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="sex">Sexo</label>
+          </td>
+          <td>
+            <select name="sex" id="sex">
+              <option value=""></option>
+              <option value="Hombre">Hombre</option>
+              <option value="Mujer">Mujer</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input type="submit" name="submit" value="Guardar cambios">
+          </td>
+        </tr>
+      </table>
+    </form>
+    <?php endif; ?>
 	</div>
 </div>
 <div id="copyright" class="container">

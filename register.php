@@ -84,7 +84,7 @@ if ( isset( $_POST['submit'] ) ) {
 			<span class="byline">Prueba de concepto de login seguro.</span>
 		</div>
     <form class="table" action="" method="post">
-      <table cellspacing="0">
+      <table cellspacing="15">
         <tr>
           <td>
             <label for="username">Nombre de usuario <span class="red">*</span></label>
