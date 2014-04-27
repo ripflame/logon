@@ -19,7 +19,7 @@
 		<ul>
 			<li class="current_page_item"><a href="index.php" accesskey="1" title="">Home</a></li>
       <?php if ( isset( $_SESSION['username'] ) ) : ?>
-      <li><a href="#" accesskey="1" title=""><?php echo $_SESSION['username']; ?></a>
+      <li><a href="profile.php" accesskey="1" title=""><?php echo $_SESSION['username']; ?></a>
       <li><a href="includes/logout.php" accesskey="2" title="">Salir</a>
       <?php else: ?>
 			<li><a href="login.php" accesskey="1" title="">Login</a></li>
