@@ -9,7 +9,7 @@ if ( isset( $_POST['submit'] ) ) {
   if ( is_valid_user( $username, $password ) ) {
     session_start();
     $_SESSION['username'] = $username;
-    header( 'Location: index.php' );
+    header( 'Location: profile.php' );
     exit();
   } else {
     echo 'Nombre de usuario o contraseña inválidos';

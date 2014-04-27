@@ -61,7 +61,7 @@ $user = get_user( $_SESSION['username'] );
             <label for="username">Nombre de usuario:</label>
           </td>
           <td>
-            <span class="profile" id="username"><?php echo $user['username']; ?></span>
+            <span class="profile" id="username"><?= $user['username']; ?></span>
           </td>
         </tr>
         <tr>
@@ -69,7 +69,7 @@ $user = get_user( $_SESSION['username'] );
             <label for="email">Email:</label>
           </td>
           <td>
-            <span class="profile-data" id="email"><?php echo $user['email']; ?></span>
+            <span class="profile-data" id="email"><?= $user['email']; ?></span>
           </td>
         </tr>
         <tr>
@@ -77,7 +77,7 @@ $user = get_user( $_SESSION['username'] );
             <label for="name">Nombre:</label>
           </td>
           <td>
-            <span class="profile-data" id="name"><?php echo $user['name'] . ' ' . $user['last_name_1'] . ' ' . $user['last_name_2']; ?></span>
+            <span class="profile-data" id="name"><?= $user['name'] . ' ' . $user['last_name_1'] . ' ' . $user['last_name_2']; ?></span>
           </td>
         </tr>
         <tr>
@@ -85,7 +85,7 @@ $user = get_user( $_SESSION['username'] );
             <label for="age">Edad:</label>
           </td>
           <td>
-            <span class="profile-data" id="age"><?php echo $user['age']; ?></span>
+            <span class="profile-data" id="age"><?= $user['age']; ?></span>
           </td>
         </tr>
         <tr>
@@ -93,7 +93,7 @@ $user = get_user( $_SESSION['username'] );
             <label for="sex">Sexo:</label>
           </td>
           <td>
-            <span class="profile-data" id="sex"><?php echo $user['sex']; ?></span>
+            <span class="profile-data" id="sex"><?= $user['sex']; ?></span>
           </td>
         </tr>
         <tr>
@@ -113,7 +113,7 @@ $user = get_user( $_SESSION['username'] );
             <label for="username">Nombre de usuario </label>
           </td>
           <td>
-            <input type="text" id="username" name="username" value="" required>
+            <input type="text" id="username" name="username" value="<?= $user['username']; ?>" required>
           </td>
         </tr>
         <tr>
@@ -121,7 +121,7 @@ $user = get_user( $_SESSION['username'] );
             <label for="email">Email </label>
           </td>
           <td>
-            <input type="email" id="email" name="email" value="" required>
+            <input type="email" id="email" name="email" value="<?= $user['email']; ?>" required>
           </td>
         </tr>
         <tr>
@@ -129,7 +129,7 @@ $user = get_user( $_SESSION['username'] );
             <label for="name">Nombre(s) </label>
           </td>
           <td>
-            <input type="text" id="name" value="" name="name">
+            <input type="text" id="name" value="<?= $user['name']; ?>" name="name">
           </td>
         </tr>
         <tr>
@@ -137,7 +137,7 @@ $user = get_user( $_SESSION['username'] );
             <label for="last_name_1">Primer Apellido </label>
           </td>
           <td>
-            <input type="text" id="last_name_1" value="" name="last_name_1">
+            <input type="text" id="last_name_1" value="<?= $user['last_name_1']; ?>" name="last_name_1">
           </td>
         </tr>
         <tr>
@@ -145,7 +145,7 @@ $user = get_user( $_SESSION['username'] );
             <label for="last_name_2">Segundo Apellido </label>
           </td>
           <td>
-            <input type="text" id="last_name_2" value="" name="last_name_2">
+            <input type="text" id="last_name_2" value="<?= $user['last_name_2']; ?>" name="last_name_2">
           </td>
         </tr>
         <tr>
@@ -153,7 +153,7 @@ $user = get_user( $_SESSION['username'] );
             <label for="age">Edad</label>
           </td>
           <td>
-            <input type="number" id="age" value="" name="age" min="1">
+            <input type="number" id="age" value="<?= $user['age']; ?>" name="age" min="1">
           </td>
         </tr>
         <tr>
@@ -163,8 +163,8 @@ $user = get_user( $_SESSION['username'] );
           <td>
             <select name="sex" id="sex">
               <option value=""></option>
-              <option value="Hombre">Hombre</option>
-              <option value="Mujer">Mujer</option>
+              <option value="Hombre" <?php if ( $user['sex'] == "Hombre" ) echo selected; ?>>Hombre</option>
+              <option value="Mujer" <?php if ( $user['sex'] == "Mujer" ) echo selected; ?>>Mujer</option>
             </select>
           </td>
         </tr>
