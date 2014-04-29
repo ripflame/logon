@@ -1,4 +1,5 @@
 <?php
+include( 'includes/lock.php' );
 include( 'includes/require_ssl.php' );
 include( 'includes/db_controller.php' );
 session_start();
