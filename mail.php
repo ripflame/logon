@@ -1,5 +1,5 @@
 <?php
-$to      = 'ripflame@gmail.com';
+$to      = 'fqqcnhif@guerrillamail.com';
 $subject = 'Desde PHP';
 $message = 'PROBANDO ESTA MIERDA';
 $headers = 'From: webmaster@leon-enriquez.com' . "\r\n" .
