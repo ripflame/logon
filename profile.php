@@ -1,4 +1,5 @@
 <?php
+include( 'includes/require_ssl.php' );
 include( 'includes/db_controller.php' );
 session_start();
 
@@ -11,6 +12,18 @@ if ( $_SERVER["REQUEST_METHOD"] == "GET" ) {
 }
 
 if ( $_SERVER["REQUEST_METHOD"] == "POST") {
+  $username = $db->real_escape_string( $_POST['username'] );
+  $email = $db->real_escape_string( $_POST['email'] );
+  $name = $db->real_escape_string( $_POST['name'] );
+  $last_name_1 = $db->real_escape_string( $_POST['last_name_1'] );
+  $last_name_2 = $db->real_escape_string( $_POST['last_name_2'] );
+  $age = $db->real_escape_string( $_POST['age'] );
+  $sex = $db->real_escape_string( $_POST['sex'] );
+
+  if ( update_user( $username, $email, $name, $last_name_1, $last_name_2, $age, $sex ) ) {
+    header( 'Location: profile.php' );
+    exit();
+  }
 }
 
 $user = get_user( $_SESSION['username'] );
@@ -110,10 +123,11 @@ $user = get_user( $_SESSION['username'] );
       <table cellspacing="15">
         <tr>
           <td>
-            <label for="username">Nombre de usuario <span class="red">*</span></label>
+            <label for="username">Nombre de usuario:</label>
           </td>
           <td>
-            <input type="text" id="username" name="username" value="<?= $user['username']; ?>" required>
+            <span class="profile"><?= $user['username']; ?></span>
+            <input type="hidden" name="username" value="<?= $user['username']; ?>" id="username">
           </td>
         </tr>
         <tr>
@@ -129,7 +143,7 @@ $user = get_user( $_SESSION['username'] );
             <label for="name">Nombre(s) <span class="red">*</span></label>
           </td>
           <td>
-            <input type="text" id="name" value="<?= $user['name']; ?>" name="name">
+            <input type="text" id="name" value="<?= $user['name']; ?>" name="name" required>
           </td>
         </tr>
         <tr>
@@ -137,7 +151,7 @@ $user = get_user( $_SESSION['username'] );
             <label for="last_name_1">Primer Apellido <span class="red">*</span></label>
           </td>
           <td>
-            <input type="text" id="last_name_1" value="<?= $user['last_name_1']; ?>" name="last_name_1">
+            <input type="text" id="last_name_1" value="<?= $user['last_name_1']; ?>" name="last_name_1" required>
           </td>
         </tr>
         <tr>
@@ -145,7 +159,7 @@ $user = get_user( $_SESSION['username'] );
             <label for="last_name_2">Segundo Apellido <span class="red">*</span></label>
           </td>
           <td>
-            <input type="text" id="last_name_2" value="<?= $user['last_name_2']; ?>" name="last_name_2">
+            <input type="text" id="last_name_2" value="<?= $user['last_name_2']; ?>" name="last_name_2" required>
           </td>
         </tr>
         <tr>

@@ -1,6 +1,17 @@
 <?php
 include( 'config.php' );
 
+function update_user( $username, $email, $name, $last_name_1, $last_name_2, $age, $sex ) {
+  global $db;
+
+  $query = "UPDATE `users` set `username`='".$username."', `email`='".$email."', `name`='".$name."', `last_name_1`='".$last_name_1."', `last_name_2`='".$last_name_2."', `age`='".$age."', `sex`='".$sex."' WHERE `username`='".$username."'";
+  if ( $db->query( $query ) ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function user_exists( $username ) {
   return false;
 }
