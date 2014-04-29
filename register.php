@@ -39,7 +39,7 @@ if ( isset( $_POST['submit'] ) ) {
       if ( $db->query( $query ) ) {
         session_start();
         $_SESSION['username'] = $username;
-        header( 'Location: index.php' );
+        header( 'Location: profile.php' );
         exit();
       } else {
         $error -> $db->error;
