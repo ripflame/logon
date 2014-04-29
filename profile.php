@@ -110,7 +110,7 @@ $user = get_user( $_SESSION['username'] );
       <table cellspacing="15">
         <tr>
           <td>
-            <label for="username">Nombre de usuario </label>
+            <label for="username">Nombre de usuario <span class="red">*</span></label>
           </td>
           <td>
             <input type="text" id="username" name="username" value="<?= $user['username']; ?>" required>
@@ -118,7 +118,7 @@ $user = get_user( $_SESSION['username'] );
         </tr>
         <tr>
           <td>
-            <label for="email">Email </label>
+            <label for="email">Email <span class="red">*</span></label>
           </td>
           <td>
             <input type="email" id="email" name="email" value="<?= $user['email']; ?>" required>
@@ -126,7 +126,7 @@ $user = get_user( $_SESSION['username'] );
         </tr>
         <tr>
           <td>
-            <label for="name">Nombre(s) </label>
+            <label for="name">Nombre(s) <span class="red">*</span></label>
           </td>
           <td>
             <input type="text" id="name" value="<?= $user['name']; ?>" name="name">
@@ -134,7 +134,7 @@ $user = get_user( $_SESSION['username'] );
         </tr>
         <tr>
           <td>
-            <label for="last_name_1">Primer Apellido </label>
+            <label for="last_name_1">Primer Apellido <span class="red">*</span></label>
           </td>
           <td>
             <input type="text" id="last_name_1" value="<?= $user['last_name_1']; ?>" name="last_name_1">
@@ -142,7 +142,7 @@ $user = get_user( $_SESSION['username'] );
         </tr>
         <tr>
           <td>
-            <label for="last_name_2">Segundo Apellido </label>
+            <label for="last_name_2">Segundo Apellido <span class="red">*</span></label>
           </td>
           <td>
             <input type="text" id="last_name_2" value="<?= $user['last_name_2']; ?>" name="last_name_2">
@@ -176,6 +176,7 @@ $user = get_user( $_SESSION['username'] );
         </tr>
       </table>
     </form>
+    <p>Los campos con un asterisco ( <span class="red">*</span> ) son obligatorios.</p>
     <?php endif; ?>
 	</div>
 </div>
