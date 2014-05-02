@@ -85,7 +85,7 @@ if ( isset( $_POST['submit'] ) ) {
           </td>
         </tr>
       </table>
-      <p class="small"> <a href="forgot.php">¿Olvidaste tu contraseña?</a> </p>
+      <p> <a href="forgot.php">¿Olvidaste tu contraseña?</a> </p>
     </form>
 	</div>
 </div>
