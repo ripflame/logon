@@ -36,7 +36,7 @@ $user = get_user( $_SESSION['username'] );
 <title>Logon - Perfil</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
 
@@ -199,7 +199,7 @@ $user = get_user( $_SESSION['username'] );
 	<p>Copyright &copy; 2014 Logon.com. All rights reserved.</p>
 </div>
 <div class="badge container">
-  <img src="images/digitalOceanBadge.png" alt="digitalocean">
+  <a href="http://digitalocean.com" title="Digital Ocean" target="_blank"><img src="images/digitalOceanBadge.png" alt="digitalocean"></a>
 </div>
 </body>
 </html>
