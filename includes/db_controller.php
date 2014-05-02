@@ -12,8 +12,14 @@ function update_user( $username, $email, $name, $last_name_1, $last_name_2, $age
   }
 }
 
-function user_exists( $username ) {
+// Recordar codificar funcionalidad
+function username_exists( $username ) {
   return false;
+}
+
+// Recordar codificar funcionalidad
+function user_email_exists( $email ) {
+  return true;
 }
 
 function is_valid_user( $username, $password ) {
@@ -44,5 +50,16 @@ function get_user( $username ) {
 	} else {
     return false;
 	}
+}
+
+function user_forgot_password( $email, $token ) {
+  global $db;
+
+  $query = "UPDATE `users` set `token`='".$token."', last_time_forgot='".date("Y-m-d H:i:s")."' WHERE `email`='".$email."'";
+  if ( $db->query( $query ) ) {
+    return true;
+  } else {
+    return false;
+  }
 }
 ?>

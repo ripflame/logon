@@ -28,7 +28,7 @@ if ( isset( $_POST['submit'] ) ) {
     $sex = $db->real_escape_string( $_POST['sex'] );
   }
 
-  if ( !user_exists( $username ) ) {
+  if ( !username_exists( $username ) ) {
     if ( $password == $password_confirm ) {
       $crypt_password = crypt( $password );
       if ( isset( $age ) && !isset( $sex ) ) {
