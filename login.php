@@ -79,7 +79,7 @@ if ( isset( $_POST['submit'] ) ) {
 	</div>
 </div>
 <div id="copyright" class="container">
-	<p>Copyright &copy; 2014 Logon.com. All rights reserved.</p>
+	<p>Copyright &copy; 2014 Leon-Enriquez.com All rights reserved.</p>
 </div>
 <div class="badge container">
   <a href="http://digitalocean.com" title="Digital Ocean" target="_blank"><img src="images/digitalOceanBadge.png" alt="digitalocean"></a>
