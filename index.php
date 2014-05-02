@@ -113,9 +113,9 @@
 			<!--<span class="byline">Phasellus nec erat sit amet nibh pellentesque congue</span>-->
       <ul class="byline">
         <li>Gilberto León</li>
-        <li>Andrés Rosado</li>
         <li>Amado Canté</li>
         <li>Mario Silveira</li>
+        <li>Andrés Rosado</li>
       </ul>
 		</div>
 		<ul class="contact">
@@ -123,10 +123,10 @@
 		</ul>
 </div>
 <div id="copyright" class="container">
-  <p>Copyright &copy; 2014 Logon.com. All rights reserved.</a></p>
+  <p>Copyright &copy; 2014 Logon.com. All rights reserved.</p>
 </div>
 <div class="badge container">
-  <img src="images/digitalOceanBadge.png" alt="digitalocean">
+  <a href="http://digitalocean.com" title="Digital Ocean" target="_blank"><img src="images/digitalOceanBadge.png" alt="digitalocean"></a>
 </div>
 </body>
 </html>
