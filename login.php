@@ -81,5 +81,8 @@ if ( isset( $_POST['submit'] ) ) {
 <div id="copyright" class="container">
 	<p>Copyright &copy; 2014 Logon.com. All rights reserved.</a></p>
 </div>
+<div class="badge container">
+  <img src="images/digitalOceanBadge.png" alt="digitalocean">
+</div>
 </body>
 </html>
