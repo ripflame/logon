@@ -1,8 +1,15 @@
 <?php
+
+session_start();
+if ( isset( $_SESSION['username'] ) ) {
+  header( 'Location: ../profile.php' );
+}
+
 include( 'includes/require_ssl.php' );
 include( 'includes/db_controller.php' );
 
 if ( isset( $_POST['submit'] ) ) {
+  $bad_user = false;
   $username = $db->real_escape_string( $_POST['username'] );
   $password = $db->real_escape_string( $_POST['password'] );
 
@@ -12,7 +19,7 @@ if ( isset( $_POST['submit'] ) ) {
     header( 'Location: profile.php' );
     exit();
   } else {
-    echo 'Nombre de usuario o contraseña inválidos';
+    $bad_user = true;
   }
 }
 ?>
@@ -47,7 +54,11 @@ if ( isset( $_POST['submit'] ) ) {
 	<div id="content" class="centered">
 		<div class="title">
 			<h2>Ingresa</h2>
-			<span class="byline">Prueba de concepto de login seguro.</span>
+      <?php if ( $bad_user ) : ?>
+        <span class="byline red">Nombre de usuario o contraseña inválidos.</span>
+      <?php elseif ( !$bad_user ) : ?>
+        <span class="byline">Prueba de concepto de login seguro.</span>
+      <?php endif; ?>
 		</div>
     <form class="table" action="" method="post">
       <table cellspacing="15">
@@ -74,7 +85,7 @@ if ( isset( $_POST['submit'] ) ) {
           </td>
         </tr>
       </table>
-      <p class="small"> <a href="#">¿Olvidaste tu contraseña?</a> </p>
+      <p class="small"> <a href="forgot.php">¿Olvidaste tu contraseña?</a> </p>
     </form>
 	</div>
 </div>

@@ -1,4 +1,9 @@
 <?php
+session_start();
+if ( isset( $_SESSION['username'] ) ) {
+  header( 'Location: ../profile.php' );
+}
+
 include( 'includes/require_ssl.php' );
 include( 'includes/db_controller.php' );
 
@@ -37,7 +42,6 @@ if ( isset( $_POST['submit'] ) ) {
       }
 
       if ( $db->query( $query ) ) {
-        session_start();
         $_SESSION['username'] = $username;
         header( 'Location: profile.php' );
         exit();
