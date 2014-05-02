@@ -14,9 +14,7 @@ if ( isset( $_POST['submit'] ) ) {
     $token = md5( $token . $timestamp );
 
     if ( user_forgot_password( $email, $token ) ) {
-      if ( send_fp_email( $email, $token ) ) {
-        echo 'sent';
-      }
+      send_fp_email( $email, $token );
     }
 
   }
