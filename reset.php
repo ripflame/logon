@@ -6,6 +6,7 @@ include( 'includes/helpers.php' );
 global $salt;
 
 $token_valid = false;
+$password_reset = false;
 
 if ( isset( $_GET['token'] ) && isset( $_GET['email'] ) )  {
   if ( token_is_valid( $_GET['token'] ) ) {
@@ -14,6 +15,17 @@ if ( isset( $_GET['token'] ) && isset( $_GET['email'] ) )  {
 } else {
   header( 'Location: login.php' );
   exit();
+}
+
+if ( isset( $_POST['submit'] ) ) {
+  $password = $db->real_escape_string( $_POST['password'] );
+  $password_confirm = $db->real_escape_string( $_POST['password_confirm'] );
+
+  if ( $password == $password_confirm ) {
+    if ( update_user_password( $password ) ) {
+      $password_reset = true;
+    }
+  }
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -79,6 +91,7 @@ if ( isset( $_GET['token'] ) && isset( $_GET['email'] ) )  {
           </td>
         </tr>
       </table>
+      <input type="hidden" name="email" value="<?= $email; ?>">
     </form>
     <?php endif; ?>
 	</div>

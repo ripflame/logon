@@ -80,4 +80,16 @@ function token_is_valid( $token ) {
     return false;
 	}
 }
+
+function update_user_password( $password, $email ) {
+  global $db;
+
+  $crypt_password = crypt( $password );
+  $query = "UPDATE `users` set `password`='$password' WHERE `email`='$email'";
+  if ( $db->query( $query ) ) {
+    return true;
+  } else {
+    return false;
+  }
+}
 ?>
