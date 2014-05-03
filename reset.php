@@ -11,6 +11,7 @@ $password_reset = false;
 if ( isset( $_GET['token'] ) && isset( $_GET['email'] ) )  {
   if ( token_is_valid( $_GET['token'] ) ) {
     $token_valid = true;
+    $email = $_GET['email'];
   }
 } else {
   header( 'Location: login.php' );
