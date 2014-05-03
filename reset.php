@@ -25,7 +25,7 @@ if ( isset( $_POST['submit'] ) ) {
       $email = $_GET['email'];
     }
   } else {
-    header( 'Location: logon/login.php' );
+    header( 'Location: login.php' );
     exit();
   }
 }
