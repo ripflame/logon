@@ -85,7 +85,7 @@ function update_user_password( $password, $email ) {
   global $db;
 
   $crypt_password = crypt( $password );
-  $query = "UPDATE `users` SET `password`='$crypt_password' WHERE `email`='$email'";
+  $query = "UPDATE `users` SET `password`='$crypt_password', `token`=NULL  WHERE `email`='$email'";
   if ( $db->query( $query ) ) {
     return true;
   } else {
