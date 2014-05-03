@@ -21,10 +21,13 @@ if ( isset( $_GET['token'] ) && isset( $_GET['email'] ) )  {
 if ( isset( $_POST['submit'] ) ) {
   $password = $db->real_escape_string( $_POST['password'] );
   $password_confirm = $db->real_escape_string( $_POST['password_confirm'] );
+  $email = $db->real_escape_string( $_POST['email'] );
 
   if ( $password == $password_confirm ) {
-    if ( update_user_password( $password, $_POST['email'] ) ) {
+    if ( update_user_password( $password, $email ) ) {
       $password_reset = true;
+    } else {
+      $token_valid = false;
     }
   }
 }
@@ -95,7 +98,7 @@ if ( isset( $_POST['submit'] ) ) {
           </td>
         </tr>
       </table>
-      <input type="hidden" name="email" value="<?= $email; ?>">
+      <input type="hidden" id="email" name="email" value="<?= $email; ?>">
     </form>
     <?php endif; ?>
 	</div>
