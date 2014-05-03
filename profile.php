@@ -22,7 +22,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST") {
   $sex = $db->real_escape_string( $_POST['sex'] );
 
   if ( update_user( $username, $email, $name, $last_name_1, $last_name_2, $age, $sex ) ) {
-    header( 'Location: profile.php' );
+    header( 'Location: logon/profile.php' );
     exit();
   }
 }

@@ -2,7 +2,7 @@
 
 session_start();
 if ( isset( $_SESSION['username'] ) ) {
-  header( 'Location: ../profile.php' );
+  header( 'Location: logon/profile.php' );
 }
 
 include( 'includes/require_ssl.php' );
@@ -16,7 +16,7 @@ if ( isset( $_POST['submit'] ) ) {
   if ( is_valid_user( $username, $password ) ) {
     session_start();
     $_SESSION['username'] = $username;
-    header( 'Location: profile.php' );
+    header( 'Location: logon/profile.php' );
     exit();
   } else {
     $bad_user = true;
