@@ -24,10 +24,8 @@ if ( isset( $_POST['submit'] ) ) {
   $email = $db->real_escape_string( $_POST['email'] );
 
   if ( $password == $password_confirm ) {
-      $token_valid = false;
     if ( update_user_password( $password, $email ) ) {
       $password_reset = true;
-    } else {
     }
   }
 }
@@ -63,6 +61,7 @@ if ( isset( $_POST['submit'] ) ) {
 	<div id="content" class="centered">
 		<div class="title">
 			<h2>Reinicio de contraseña</h2>
+      <?php print_r( $password_reset ); ?>
       <?php if ( $password_reset ) : ?>
 			<span class="byline">Tu contraseña ha sido cambiada.</span>
       <a class="button" href="login.php" title="Login">Login</a>
