@@ -73,7 +73,7 @@ function token_is_valid( $token ) {
     $result = $db->query( $query );
     $row = $result->fetch_assoc();
     $last_time_forgot = $row['last_time_forgot'];
-    if ( strtotime( $last_time_forgot ) > strtotime( "-30 minutes" ) ) {
+    if ( strtotime( $last_time_forgot ) > strtotime( "-3 minutes" ) ) {
       return true;
     }
 	} else {

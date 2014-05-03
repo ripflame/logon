@@ -54,9 +54,14 @@ if ( isset( $_POST['submit'] ) ) {
 <div id="header">
 	<div id="menu" class="container">
 		<ul>
-			<li><a href="index.php" accesskey="1" title="">Home</a></li>
-			<li class="current_page_item"><a href="login.php" accesskey="1" title="">Login</a></li>
+			<li class="current_page_item"><a href="index.php" accesskey="1" title="">Home</a></li>
+      <?php if ( isset( $_SESSION['username'] ) ) : ?>
+      <li><a href="profile.php" accesskey="1" title=""><?php echo $_SESSION['username']; ?></a>
+      <li><a href="includes/logout.php" accesskey="2" title="">Salir</a>
+      <?php else: ?>
+			<li><a href="login.php" accesskey="1" title="">Login</a></li>
 			<li><a href="register.php" accesskey="2" title="">Registro</a></li>
+      <?php endif; ?>
 		</ul>
 	</div>
 </div>
@@ -72,7 +77,6 @@ if ( isset( $_POST['submit'] ) ) {
       <a class="button" href="login.php" title="Login">Login</a>
       <?php elseif ( !$token_valid ) : ?>
 			<span class="byline red">Este link ya no es válido.</span>
-      <a class="button" href="login.php" title="Login">Login</a>
 		</div>
       <?php else : ?>
 			<span class="byline">Ingresa tu contraseña nueva</span>
