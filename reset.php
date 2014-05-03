@@ -85,10 +85,10 @@ if ( isset( $_POST['submit'] ) ) {
         </tr>
         <tr>
           <td>
-            <label for="password_confim">Confirma tu contraseña</label>
+            <label for="password_confirm">Confirma tu contraseña</label>
           </td>
           <td>
-            <input type="password" id="password_confim" name="password_confim" value="" required>
+            <input type="password" id="password_confirm" name="password_confirm" value="" required>
           </td>
         </tr>
         <tr>
