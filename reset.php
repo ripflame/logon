@@ -8,16 +8,6 @@ global $salt;
 $token_valid = false;
 $password_reset = false;
 
-if ( isset( $_GET['token'] ) && isset( $_GET['email'] ) )  {
-  if ( token_is_valid( $_GET['token'] ) ) {
-    $token_valid = true;
-    $email = $_GET['email'];
-  }
-} else {
-  header( 'Location: login.php' );
-  exit();
-}
-
 if ( isset( $_POST['submit'] ) ) {
   $password = $db->real_escape_string( $_POST['password'] );
   $password_confirm = $db->real_escape_string( $_POST['password_confirm'] );
@@ -27,6 +17,16 @@ if ( isset( $_POST['submit'] ) ) {
     if ( update_user_password( $password, $email ) ) {
       $password_reset = true;
     }
+  }
+} else {
+  if ( isset( $_GET['token'] ) && isset( $_GET['email'] ) )  {
+    if ( token_is_valid( $_GET['token'] ) ) {
+      $token_valid = true;
+      $email = $_GET['email'];
+    }
+  } else {
+    header( 'Location: login.php' );
+    exit();
   }
 }
 ?>
