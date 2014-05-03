@@ -9,12 +9,12 @@ $token_valid = false;
 $password_reset = false;
 
 if ( isset( $_POST['submit'] ) ) {
-  echo 'FUCK'; exit();
   $password = $db->real_escape_string( $_POST['password'] );
   $password_confirm = $db->real_escape_string( $_POST['password_confirm'] );
   $email = $db->real_escape_string( $_POST['email'] );
 
   if ( $password == $password_confirm ) {
+  echo 'FUCK'; exit();
     if ( update_user_password( $password, $email ) ) {
       $password_reset = true;
     }
