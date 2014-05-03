@@ -5,26 +5,22 @@ include( 'includes/helpers.php' );
 
 global $salt;
 
-if ( isset( $_POST['submit'] ) ) {
-  $email_sent = true;
-  $email = $db->real_escape_string( $_POST['email'] );
+$token_valid = false;
 
-  if ( user_email_exists( $email ) ) {
-    $timestamp = date_timestamp_get( date_create() );
-    $token = md5( $token . $timestamp );
-
-    if ( user_forgot_password( $email, $token ) ) {
-      send_fp_email( $email, $token );
-    }
-
+if ( isset( $_GET['token'] ) && isset( $_GET['email'] ) )  {
+  if ( token_is_valid( $_GET['token'] ) ) {
+    $token_valid = true;
   }
+} else {
+  header( 'Location: login.php' );
+  exit();
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Logon - Olvide mi contraseña</title>
+<title>Logon - Reinicio de contraseña</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
@@ -50,29 +46,36 @@ if ( isset( $_POST['submit'] ) ) {
 <div id="page" class="container">
 	<div id="content" class="centered">
 		<div class="title">
-			<h2>Olvidé mi contraseña</h2>
-      <?php if ( $email_sent ) : ?>
-			<span class="byline">Se ha enviado un link a tu correo</span>
-      <p>Recuerda revisar tu carpeta de spam.</p>
+			<h2>Reinicio de contraseña</h2>
+      <?php if ( !$token_valid ) : ?>
+			<span class="byline red">Este link ya no es válido.</span>
       <a class="button" href="login.php" title="Login">Login</a>
 		</div>
       <?php else : ?>
-			<span class="byline">Ingresa tu correo electrónico</span>
+			<span class="byline">Ingresa tu contraseña nueva</span>
 		</div>
     <form class="table" action="" method="post">
       <table cellspacing="15">
         <tr>
           <td>
-            <label for="email">Correo electrónico</label>
+            <label for="password">Contraseña nueva</label>
           </td>
           <td>
-            <input type="email" id="email" name="email" value="" required>
+            <input type="password" id="password" name="password" value="" required>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="password_confim">Confirma tu contraseña</label>
+          </td>
+          <td>
+            <input type="password" id="password_confim" name="password_confim" value="" required>
           </td>
         </tr>
         <tr>
           <td></td>
           <td>
-            <input type="submit" name="submit" value="Enviar">
+            <input type="submit" name="submit" value="Actualizar contraseña">
           </td>
         </tr>
       </table>

@@ -62,4 +62,22 @@ function user_forgot_password( $email, $token ) {
     return false;
   }
 }
+
+function token_is_valid( $token ) {
+  global $db;
+
+  $query = "SELECT `token` FROM `users` WHERE `token`='$token'";
+	$result = $db->query( $query );
+  if($result->num_rows == 1) {
+    $query = "SELECT `last_time_forgot` FROM `users` WHERE `token`='$token'";
+    $result = $db->query( $query );
+    $row = $result->fetch_assoc();
+    $last_time_forgot = $row['last_time_forgot'];
+    if ( strtotime( $last_time_forgot ) > strtotime( "-30 minutes" ) ) {
+      return true;
+    }
+	} else {
+    return false;
+	}
+}
 ?>
