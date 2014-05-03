@@ -5,6 +5,8 @@ include( 'includes/helpers.php' );
 
 global $salt;
 
+session_start();
+
 $token_valid = false;
 $password_reset = false;
 
@@ -25,7 +27,11 @@ if ( isset( $_POST['submit'] ) ) {
       $email = $_GET['email'];
     }
   } else {
-    header( 'Location: login.php' );
+    if ( isset( $_SESSION['username'] ) ) {
+      header( 'Location: profile.php' );
+    } else {
+      header( 'Location: login.php' );
+    }
     exit();
   }
 }
