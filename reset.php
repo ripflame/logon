@@ -19,8 +19,7 @@ if ( isset( $_POST['submit'] ) ) {
       $password_reset = true;
     }
   }
-} else {
-  if ( isset( $_GET['token'] ) && isset( $_GET['email'] ) )  {
+} elseif ( isset( $_GET['token'] ) && isset( $_GET['email'] ) )  {
     if ( token_is_valid( $_GET['token'] ) ) {
       $token_valid = true;
       $email = $_GET['email'];
