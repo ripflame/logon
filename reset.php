@@ -14,7 +14,6 @@ if ( isset( $_POST['submit'] ) ) {
   $email = $db->real_escape_string( $_POST['email'] );
 
   if ( $password == $password_confirm ) {
-  echo 'FUCK'; exit();
     if ( update_user_password( $password, $email ) ) {
       $password_reset = true;
     }
