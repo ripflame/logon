@@ -59,7 +59,10 @@ if ( isset( $_POST['submit'] ) ) {
 	<div id="content" class="centered">
 		<div class="title">
 			<h2>Reinicio de contraseña</h2>
-      <?php if ( !$token_valid ) : ?>
+      <?php if ( $password_reset ) : ?>
+			<span class="byline">Tu contraseña ha sido cambiada.</span>
+      <a class="button" href="login.php" title="Login">Login</a>
+      <?php elseif ( !$token_valid ) : ?>
 			<span class="byline red">Este link ya no es válido.</span>
       <a class="button" href="login.php" title="Login">Login</a>
 		</div>
