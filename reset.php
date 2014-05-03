@@ -23,7 +23,7 @@ if ( isset( $_POST['submit'] ) ) {
   $password_confirm = $db->real_escape_string( $_POST['password_confirm'] );
 
   if ( $password == $password_confirm ) {
-    if ( update_user_password( $password ) ) {
+    if ( update_user_password( $password, $_POST['email'] ) ) {
       $password_reset = true;
     }
   }
