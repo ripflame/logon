@@ -7,6 +7,8 @@ if ( isset( $_SESSION['username'] ) ) {
 include( 'includes/require_ssl.php' );
 include( 'includes/db_controller.php' );
 
+$user_already_exists = false;
+
 if ( isset( $_POST['submit'] ) ) {
   $username = $db->real_escape_string( $_POST['username'] );
   $password = $db->real_escape_string( $_POST['password'] );
@@ -28,7 +30,7 @@ if ( isset( $_POST['submit'] ) ) {
     $sex = $db->real_escape_string( $_POST['sex'] );
   }
 
-  if ( !username_exists( $username ) ) {
+  if ( !username_exists( $username ) && !user_email_exists( $email ) ) {
     if ( $password == $password_confirm ) {
       $crypt_password = crypt( $password );
       if ( isset( $age ) && !isset( $sex ) ) {
@@ -45,11 +47,10 @@ if ( isset( $_POST['submit'] ) ) {
         $_SESSION['username'] = $username;
         header( 'Location: profile.php' );
         exit();
-      } else {
-        $error -> $db->error;
-        echo $error;
       }
     }
+  } else {
+    $user_already_exists = true;
   }
 }
 ?>
@@ -85,7 +86,11 @@ if ( isset( $_POST['submit'] ) ) {
 	<div id="content" class="centered">
 		<div class="title">
 			<h2>Regístrate</h2>
-			<span class="byline">Prueba de concepto de login seguro.</span>
+      <?php if ( $user_already_exists ) : ?>
+        <span class="byline red">Este usuario ya está registrado.</span>
+      <?php elseif ( !$user_already_exists ) : ?>
+        <span class="byline">Prueba de concepto de login seguro.</span>
+      <?php endif; ?>
 		</div>
     <form class="table" action="" method="post">
       <table cellspacing="15">

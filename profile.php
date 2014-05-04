@@ -4,6 +4,8 @@ include( 'includes/require_ssl.php' );
 include( 'includes/db_controller.php' );
 session_start();
 
+$user_already_exists = false;
+
 if ( $_SERVER["REQUEST_METHOD"] == "GET" ) {
   if ( isset( $_GET['edit'] ) ) {
     if ( $_GET['edit'] = "yes" ) {
@@ -21,9 +23,13 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST") {
   $age = $db->real_escape_string( $_POST['age'] );
   $sex = $db->real_escape_string( $_POST['sex'] );
 
-  if ( update_user( $username, $email, $name, $last_name_1, $last_name_2, $age, $sex ) ) {
-    header( 'Location: profile.php' );
-    exit();
+  if ( edited_email_valid( $username, $email ) ) {
+    if ( update_user( $username, $email, $name, $last_name_1, $last_name_2, $age, $sex ) ) {
+      header( 'Location: profile.php' );
+      exit();
+    }
+  } else {
+    $user_already_exists = true;
   }
 }
 
@@ -65,7 +71,11 @@ $user = get_user( $_SESSION['username'] );
 	<div id="content" class="centered">
 		<div class="title">
 			<h2>Perfil de usuario</h2>
+      <?php if ( $user_already_exists ) : ?>
+        <span class="byline red">El email que intenaste usar ya está registrado.</span>
+      <?php elseif ( !$user_already_exists ) : ?>
 			<span class="byline">Estos son tus datos de usuario.</span>
+      <?php endif; ?>
 		</div>
     <?php if ( !$edit_mode ): ?>
     <form class="table" action="" method="get">

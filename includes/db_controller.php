@@ -12,14 +12,40 @@ function update_user( $username, $email, $name, $last_name_1, $last_name_2, $age
   }
 }
 
-// Recordar codificar funcionalidad
 function username_exists( $username ) {
-  return false;
+  global $db;
+
+	$query = "SELECT * FROM `users` WHERE `username`='$username'";
+	$result = $db->query( $query );
+	if($result->num_rows == 1) {
+    return true;
+	} else {
+    return false;
+	}
 }
 
-// Recordar codificar funcionalidad
 function user_email_exists( $email ) {
-  return true;
+  global $db;
+
+	$query = "SELECT * FROM `users` WHERE `email`='$email'";
+	$result = $db->query( $query );
+	if($result->num_rows == 1) {
+    return true;
+	} else {
+    return false;
+	}
+}
+
+function edited_email_valid( $username, $email ) {
+  global $db;
+
+	$query = "SELECT * FROM `users` WHERE `email`='$email' AND `username`!='$username'";
+	$result = $db->query( $query );
+  if($result->num_rows >= 1) {
+    return false;
+	} else {
+    return true;
+	}
 }
 
 function is_valid_user( $username, $password ) {
