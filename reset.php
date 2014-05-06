@@ -108,6 +108,15 @@ if ( isset( $_POST['submit'] ) ) {
       </table>
       <input type="hidden" id="email" name="email" value="<?= $email; ?>">
     </form>
+    <div id="pswd_info">
+      <h4>La contraseña debe cumplir lo siguiente:</h4>
+      <ul>
+        <li id="letter" class="invalid">Cuando menos <strong>una letra</strong></li>
+        <li id="capital" class="invalid">Cuando menos <strong>una mayúscula</strong></li>
+        <li id="number" class="invalid">Cuando menos <strong>un número</strong></li>
+        <li id="length" class="invalid">Cuando menos <strong>8 caracteres</strong></li>
+      </ul>
+    </div>
     <?php endif; ?>
 	</div>
 </div>
