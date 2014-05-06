@@ -90,7 +90,7 @@ if ( isset( $_POST['submit'] ) ) {
             <label for="password">Contraseña nueva</label>
           </td>
           <td>
-            <input type="password" id="reset_password" name="password" value="" required>
+            <input type="password" class="reset_password" id="password" name="password" value="" required>
           </td>
         </tr>
         <tr>
@@ -98,7 +98,7 @@ if ( isset( $_POST['submit'] ) ) {
             <label for="password_confirm">Confirma tu contraseña</label>
           </td>
           <td>
-            <input type="password" id="reset_password_confirm" name="password_confirm" value="" required>
+            <input type="password" class="reset_password_confirm" id="password_confirm" name="password_confirm" value="" required>
           </td>
         </tr>
         <tr>

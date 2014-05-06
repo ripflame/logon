@@ -28,14 +28,9 @@ $(document).ready(function() {
     }
 
     //validate both passwords
-    if (($('#password').val() == $('#password_confirm').val()) && ($('#password').val() != '' && $('#password_confirm').val() != '')) {
+    if ($('#password').val() == $('#password_confirm').val() ) {
       $('#both').removeClass('invalid').addClass('valid');
-    } else {
-      $('#both').removeClass('valid').addClass('invalid');
-    }
-    if (($('#reset_password').val() == $('#reset_password_confirm').val()) && ($('#reset_password').val() != '' && $('#reset_password_confirm').val() != '')) {
-      $('#both').removeClass('invalid').addClass('valid');
-    } else {
+    } else if ($('#password').val() != $('#password_confirm').val() ) {
       $('#both').removeClass('valid').addClass('invalid');
     }
   }).focus(function() {
@@ -46,11 +41,11 @@ $(document).ready(function() {
     } else if ($(this).attr('id') == 'password_confirm') {
       $('#pswd_info').css('top', '270px');
     }
-    if ($(this).attr('id') == 'reset_password') {
+    if ($(this).attr('class') == 'reset_password') {
       $('#pswd_info').css('top', '150px');
       $('#pswd_info').css('right', '65px');
       $('#page').css('overflow', 'visible');
-    } else if ($(this).attr('id') == 'reset_password_confirm') {
+    } else if ($(this).attr('class') == 'reset_password_confirm') {
       $('#pswd_info').css('top', '190px');
       $('#pswd_info').css('right', '65px');
       $('#page').css('overflow', 'visible');
