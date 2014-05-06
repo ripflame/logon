@@ -45,6 +45,7 @@ if ( isset( $_POST['submit'] ) ) {
 
       if ( $db->query( $query ) ) {
         $_SESSION['username'] = $username;
+        $_SESSION['login'] = date("Y-m-d H:i:s");
         header( 'Location: profile.php' );
         exit();
       }

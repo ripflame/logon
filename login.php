@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if ( isset( $_SESSION['username'] ) ) {
+if ( isset( $_SESSION['username'] ) && $_SESSION['login'] < strtotime( "-30 minutes" ) ) {
   header( 'Location: ../profile.php' );
 }
 
@@ -16,6 +16,7 @@ if ( isset( $_POST['submit'] ) ) {
   if ( is_valid_user( $username, $password ) ) {
     session_start();
     $_SESSION['username'] = $username;
+    $_SESSION['login'] = date("Y-m-d H:i:s");
     header( 'Location: profile.php' );
     exit();
   } else {
