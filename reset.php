@@ -46,6 +46,8 @@ if ( isset( $_POST['submit'] ) ) {
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/main.js" type="text/javascript"></script>
 
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
