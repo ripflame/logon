@@ -90,7 +90,7 @@ if ( isset( $_POST['submit'] ) ) {
             <label for="password">Contraseña nueva</label>
           </td>
           <td>
-            <input type="password" id="password" name="password" value="" required>
+            <input type="password" id="reset_password" name="password" value="" required>
           </td>
         </tr>
         <tr>
@@ -98,7 +98,7 @@ if ( isset( $_POST['submit'] ) ) {
             <label for="password_confirm">Confirma tu contraseña</label>
           </td>
           <td>
-            <input type="password" id="password_confirm" name="password_confirm" value="" required>
+            <input type="password" id="reset_password_confirm" name="password_confirm" value="" required>
           </td>
         </tr>
         <tr>
@@ -117,6 +117,7 @@ if ( isset( $_POST['submit'] ) ) {
         <li id="capital" class="invalid">Cuando menos <strong>una mayúscula</strong></li>
         <li id="number" class="invalid">Cuando menos <strong>un número</strong></li>
         <li id="length" class="invalid">Cuando menos <strong>8 caracteres</strong></li>
+        <li id="both" class="invalid">Ambas contraseñas son <strong>iguales</strong></li>
       </ul>
     </div>
     <?php endif; ?>

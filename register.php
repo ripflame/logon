@@ -187,6 +187,7 @@ if ( isset( $_POST['submit'] ) ) {
         <li id="capital" class="invalid">Cuando menos <strong>una mayúscula</strong></li>
         <li id="number" class="invalid">Cuando menos <strong>un número</strong></li>
         <li id="length" class="invalid">Cuando menos <strong>8 caracteres</strong></li>
+        <li id="both" class="invalid">Ambas contraseñas son <strong>iguales</strong></li>
       </ul>
     </div>
     <p>Los campos con un asterisco ( <span class="red">*</span> ) son obligatorios.</p>
