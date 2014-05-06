@@ -65,6 +65,8 @@ if ( isset( $_POST['submit'] ) ) {
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/main.js" type="text/javascript"></script>
 
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
@@ -178,6 +180,15 @@ if ( isset( $_POST['submit'] ) ) {
         </tr>
       </table>
     </form>
+    <div id="pswd_info">
+      <h4>La contraseña debe cumplir lo siguiente:</h4>
+      <ul>
+        <li id="letter" class="invalid">Cuando menos <strong>una letra</strong></li>
+        <li id="capital" class="invalid">Cuando menos <strong>una mayúscula</strong></li>
+        <li id="number" class="invalid">Cuando menos <strong>un número</strong></li>
+        <li id="length" class="invalid">Cuando menos <strong>8 caracteres</strong></li>
+      </ul>
+    </div>
     <p>Los campos con un asterisco ( <span class="red">*</span> ) son obligatorios.</p>
 	</div>
 </div>
