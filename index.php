@@ -81,7 +81,7 @@
 			<span class="icon icon-signin"></span>
 			<div class="title">
 				<h2>Autenticación</h2>
-				<span class="byline">Re-autenticación para editar características sensibles de configuración</span>
+				<span class="byline"><strike>Re-autenticación para editar características sensibles de configuración</strike></span>
 			</div>
 		</div>
 		<div class="column2">
@@ -95,14 +95,14 @@
 			<span class="icon icon-lock"></span>
 			<div class="title">
 				<h2>Seguridad</h2>
-				<span class="byline">Prevención de ataques de fuerza bruta</span>
+				<span class="byline"><strike>Prevención de ataques de fuerza bruta</strike></span>
 			</div>
 		</div>
 		<div class="column4">
 			<span class="icon icon-home"></span>
 			<div class="title">
 				<h2>Sesiones</h2>
-        <span class="byline">Expiración de sesión: <strong>automática</strong>, <strong>manual</strong> y del lado del <strong>cliente</strong></span>
+        <span class="byline">Expiración de sesión: <strong>automática</strong>, <strong>manual</strong> <strike>y del lado del <strong>cliente</strong></strike></span>
 			</div>
 		</div>
 	</div>
